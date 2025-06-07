@@ -50,7 +50,6 @@ function AuthorSearch() {
 
       {loading && <p className="loading-text">Loading quotes...</p>}
       {error && <p className="error-text">{error}</p>}
-
       {quotes.length > 0 && (
         <div className="author-quotes-block">
           <h3>Quotes from {searchName}</h3>
