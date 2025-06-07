@@ -6,7 +6,7 @@ function QuoteBox() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+  const API_BASE_URL = import.meta.env.VITE_REACT_APP_API_BASE_URL;
 
 
   const fetchQuote = async () => {
