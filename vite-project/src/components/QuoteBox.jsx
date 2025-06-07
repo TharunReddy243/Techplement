@@ -6,11 +6,14 @@ function QuoteBox() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
+
   const fetchQuote = async () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get('http://localhost:6969/api/quotes/random');
+      const response = await axios.get(`${API_BASE_URL}/api/quotes/random`);
       setQuote(response.data);
     } catch (err) {
       setError('Failed to fetch quote.');

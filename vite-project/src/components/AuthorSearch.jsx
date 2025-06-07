@@ -8,6 +8,9 @@ function AuthorSearch() {
   const [error, setError] = useState(null);
   const [searchName,setSearchName] = useState('');
 
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
+
   const handleAuthorSearch = async () => {
     if (!author.trim()) return;
     setSearchName(author)
@@ -16,10 +19,9 @@ function AuthorSearch() {
     setQuotes([]);
 
     try {
-      const response = await axios.get('http://localhost:6969/api/quotes/search', {
+      const response = await axios.get(`${API_BASE_URL}/api/quotes/search`, {
         params: { author },
       });
-
       if (response.data.length === 0) {
         setError(`No quotes found for "${author}".`);
       } else {

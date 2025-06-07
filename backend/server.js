@@ -14,8 +14,8 @@ const axiosInstance = axios.create({
     // })
     baseURL: 'https://favqs.com/api',
      headers: {
-     'Authorization': 'Token token=c139a814e050c89e9027aed44ed6a3a3' 
-  }
+        'Authorization': `Token token=${process.env.FAVQS_API_KEY}`
+    }
 })
 
 app.get('/api/quotes/random',async(req,res)=>{
